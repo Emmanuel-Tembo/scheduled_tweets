@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
    get "sign_up", to: "registration#new"
    post "sign_up", to: "registration#create"
+   delete "logout", to: "sessions#destroy"
 
    
    # you can replace get with root when defining the main page
