@@ -4,4 +4,19 @@ class SessionsController < ApplicationController
 
     redirect_to root_path, notice: "Logged Out"
   end
+
+  def new
+  end
+
+  def create
+    user = User.find_by(email: params[:email])
+    
+    if user.present? && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to root_path, notice: "Logged In Succesfully"
+    else
+      flash[:alert] = "Invalid email or Password"
+      render :new, status: :unprocessable_entity
+    end
+  end
 end
