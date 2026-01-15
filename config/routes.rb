@@ -2,6 +2,10 @@ Rails.application.routes.draw do
    #GET /about
    
    get "about", to: "about#index", as: :about
+
+   get "sign_up", to: "registration#new"
+   post "sign_up", to: "registration#create"
+
    
    # you can replace get with root when defining the main page
    root to: "main#index"
