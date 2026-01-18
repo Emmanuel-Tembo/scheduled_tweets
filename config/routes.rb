@@ -18,7 +18,7 @@ Rails.application.routes.draw do
    post "password_reset", to: "password_resets#create"
 
    get "password_reset_edit", to: "password_resets#edit"
-   post "password_reset_edit", to: "password_resets#update"
+   patch "password_reset_edit", to: "password_resets#update"
    
    # you can replace get with root when defining the main page
    root to: "main#index"
